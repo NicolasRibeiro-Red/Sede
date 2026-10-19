@@ -8,4 +8,4 @@
 
 Os modelos foram obtidos do perfil de Quaternius no espelho Poly Pizza. Os GLBs originais foram preservados. O [manifesto de recursos](cube-world-lab/assets/manifest.json) registra fontes, hashes, animações, medidas e limitações; [SOURCE.txt](cube-world-lab/assets/SOURCE.txt) resume a proveniência.
 
-As geometrias procedurais do ambiente, veículos e acessórios são parte do protótipo CED. Nenhuma licença adicional para o código original é concedida por este documento.
+As geometrias procedurais do ambiente, veículos e acessórios são parte do protótipo Sede. Nenhuma licença adicional para o código original é concedida por este documento.

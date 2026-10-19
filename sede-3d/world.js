@@ -8,7 +8,7 @@ const DOOR_TIME = 0.9;
 
 /** Exterior stays at ground level; only elevator.group is translated by setLiftHeight. */
 export function createWorld(scene) {
-  const group = new THREE.Group(); group.name = 'CED · Parque e edifício';
+  const group = new THREE.Group(); group.name = 'Sede · Parque e edifício';
   const landscape = new THREE.Group(); landscape.name = 'Parque caminhável'; group.add(landscape);
   const building = new THREE.Group(); building.name = 'Fachada · quatro andares'; group.add(building);
   const bounds = { minX: -62, maxX: 80, minZ: -34, maxZ: 42 };
@@ -214,7 +214,7 @@ export function createWorld(scene) {
   box([5.9, 0.06, 1.4], [0, 3.5, 8.85], 'wood', building);
   box([4.7, 1.27, 0.12], [0, 17, -0.08], 'wood', roof);
   for (const x of [-1.7, 1.7]) box([0.13, 1.2, 0.13], [x, 16.55, -0.08], 'dark', roof);
-  label('CED', 'Um lugar para boas ideias.', 4.4, 1.1, [0, 17, 0], roof);
+  label('Sede', 'Um lugar para boas ideias.', 4.4, 1.1, [0, 17, 0], roof);
   // Rooftop parapet without another full interior instance.
   for (const z of [-8.14, 8.14]) box([22.48, 0.54, 0.18], [0, 16.28, z], 'wall', roof);
   for (const x of [-11.14, 11.14]) box([0.18, 0.54, 16.3], [x, 16.28, 0], 'wall', roof);

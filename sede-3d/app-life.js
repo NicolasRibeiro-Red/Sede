@@ -1,9 +1,9 @@
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {createOffice} from './office.js?v=20261019-ced1';
+import {createOffice} from './office.js?v=20261019-sede1';
 import {createPlayerDrink} from './player-drink.js?v=20261019-beta3';
-import {createWorld} from './world.js?v=20261019-ced1';
+import {createWorld} from './world.js?v=20261019-sede1';
 import {createDayCycle} from './day-cycle.js';
 import {createSky} from './sky.js';
 import {createAtmosphere} from './atmosphere.js?v=20261019-2';

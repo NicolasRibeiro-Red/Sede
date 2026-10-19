@@ -14,7 +14,7 @@ const NIGHT_BOUNCE = { floor: 0.18, wall: 0.12, trim: 0.08, wood: 0.12, paper: 0
 
 export function createOffice(scene) {
   const group = new THREE.Group();
-  group.name = 'CED · Primeiro andar';
+  group.name = 'Sede · Primeiro andar';
   const cutaway = new THREE.Group();
   cutaway.name = 'Teto e fachadas frontal/direita';
   group.add(cutaway);
@@ -126,7 +126,7 @@ export function createOffice(scene) {
   for (let i = 0; i < 27; i++) { matrix.makeScale(0.009, 0.003, 15.9); matrix.setPosition(-10.4 + i * 0.8, 0.002, 0); seams.setMatrixAt(i, matrix); }
   seams.instanceMatrix.needsUpdate = true; seams.receiveShadow = true; group.add(seams);
   rounded([3.36, 0.014, 12.1], [0, 0.014, 0.2], 'rug');
-  const entrySign = sign('CED', 'ANDAR 01', 1.6, 0.4, [0, 0.027, 5.9]);
+  const entrySign = sign('Sede', 'ANDAR 01', 1.6, 0.4, [0, 0.027, 5.9]);
   entrySign.rotation.set(-Math.PI / 2, 0, 0);
 
   // Only these exterior faces and the roof disappear in overview. Colliders stay.

@@ -1,6 +1,6 @@
 {
-  "name": "ced",
-  "version": "0.1.0-beta.1",
+  "name": "sede",
+  "version": "0.1.0-beta.2",
   "private": true,
   "type": "module",
   "description": "Campus 3D experimental com personagens, atividades e métricas simuladas.",

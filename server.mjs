@@ -56,5 +56,5 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     console.error(error.code === 'EADDRINUSE' ? `A porta ${port} já está em uso. Escolha outra com a variável PORT.` : error.message);
     process.exitCode = 1;
   });
-  server.listen(port, '127.0.0.1', () => console.log(`CED beta: http://127.0.0.1:${port}/sede-3d/\nCtrl+C encerra o servidor.`));
+  server.listen(port, '127.0.0.1', () => console.log(`Sede beta: http://127.0.0.1:${port}/sede-3d/\nCtrl+C encerra o servidor.`));
 }

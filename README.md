@@ -1,16 +1,16 @@
-# CED — Campus 3D experimental
+# Sede — Campus 3D experimental
 
 Uma sede virtual em estilo voxel/chibi: quatro andares, agentes circulando, café, pub, um parque e carros que voam. Projeto de teste em beta, desenvolvido com JavaScript e Three.js.
 
-![Visão do campus CED](docs/preview.jpg)
+![Visão do campus Sede](docs/preview.jpg)
 
 ## Rodar localmente
 
 Requer **Node.js 22 ou superior**, navegador com WebGL e aceleração de hardware habilitada. A experiência foi pensada para desktop, mouse e teclado.
 
 ```sh
-git clone https://github.com/NicolasRibeiro-Red/CED.git
-cd CED
+git clone https://github.com/NicolasRibeiro-Red/Sede.git
+cd Sede
 npm start
 ```
 
@@ -68,4 +68,4 @@ Os testes verificam sintaxe, referências locais, integridade dos modelos e aces
 
 Modelos **Cube World Kit**, de **Quaternius** (CC0), biblioteca **Three.js** (MIT) e fonte **Inter** (SIL OFL). As licenças e a origem dos recursos estão preservadas; veja [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-Este repositório é público, mas ainda não atribui uma licença de software livre ao código original do CED. As licenças dos componentes de terceiros se aplicam aos respectivos arquivos. Nomes de produtos aparecem apenas como referências do protótipo, sem afiliação ou endosso.
+Este repositório é público, mas ainda não atribui uma licença de software livre ao código original da Sede. As licenças dos componentes de terceiros se aplicam aos respectivos arquivos. Nomes de produtos aparecem apenas como referências do protótipo, sem afiliação ou endosso.
