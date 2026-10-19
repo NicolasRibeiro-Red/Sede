@@ -1,0 +1,12 @@
+{
+  "name": "ced",
+  "version": "0.1.0-beta.1",
+  "private": true,
+  "type": "module",
+  "description": "Campus 3D experimental com personagens, atividades e métricas simuladas.",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/release.test.mjs"
+  }
+}

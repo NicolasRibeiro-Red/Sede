@@ -1,0 +1,7 @@
+Cube World Kit - Quaternius
+Official: https://quaternius.com/packs/cubeworldkit.html
+Downloaded from author profile mirror: https://poly.pizza/bundle/Cube-World-Kit-DwDr8493Fw
+License: CC0 1.0 Universal (verified on pack page and selected model metadata).
+The mirror ZIP contains no license document; LICENSE-CC0-1.0.txt is the canonical Creative Commons legal text.
+Original GLBs are unmodified. See manifest.json for hashes, sources, inspection and limitations.
+Downloaded 2026-10-18.

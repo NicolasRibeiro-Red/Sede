@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="theme-color" content="#ffffff">
+ <meta name="description" content="Sede. Um mundo compartilhado para acompanhar seus agentes, suas ferramentas e seu trabalho.">
+ <title>Sede · Um lugar para criar</title>
+ <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+ <link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="preload" href="assets/fonts/inter-500.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="stylesheet" href="style.css?v=10">
+ <link rel="stylesheet" href="task-composer.css?v=1">
+ <link rel="stylesheet" href="analytics.css?v=2">
+ <link rel="stylesheet" href="music.css?v=2">
+ <link rel="stylesheet" href="customization.css?v=2">
+ <link rel="stylesheet" href="peace.css?v=20261019-beta1">
+ <link rel="stylesheet" href="drink.css?v=20261019-beta2">
+ <script type="importmap">{"imports":{"three":"../cube-world-lab/vendor/three/build/three.module.js","three/addons/":"../cube-world-lab/vendor/three/examples/jsm/","./layout.js":"./layout.js?v=20261019-visits1","./peace-behavior.js":"./peace-behavior.js?v=20261019-beta2"}}</script>
+</head>
+<body>
+ <header class="topbar">
+  <a class="brand" href="./" aria-label="Sede, início"><img class="brandmark" src="assets/logo.svg" alt="" width="36" height="36"><span>Sede<small>Um lugar para criar.</small></span></a>
+  <div class="floor-label"><span class="floor-number" id="floor-number">T</span><span id="floor-header">Recepção & produto<small>Quatro andares. Um só mundo.</small></span></div>
+  <nav aria-label="Explorar e acompanhar">
+   <button id="exterior-button" class="quiet">Ver o parque</button>
+   <button id="campus-button" class="quiet">Campus</button>
+   <button id="board-button" class="quiet">Tarefas</button>
+   <button id="analytics-button" class="quiet" aria-haspopup="dialog">Métricas</button>
+   <button id="music-button" class="quiet" aria-controls="music-panel">Música</button>
+   <button id="customization-button" class="quiet" aria-haspopup="dialog" aria-controls="customization-panel">Personalizar</button>
+   <button id="metrics-toggle" class="quiet" aria-controls="metrics" aria-expanded="true"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 13.5V17M10 8V17M17 3V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Atividade</span></button>
+   <button id="mode-button" class="primary" disabled>Entrar no andar <span aria-hidden="true">↗</span></button>
+  </nav>
+ </header>
+ <main id="viewport" tabindex="0" aria-label="Escritório 3D interativo. Use Entrar no andar para caminhar.">
+  <div id="loading" role="status"><img class="loading-mark" src="assets/logo.svg" alt="" width="64" height="64"><h1>Seu mundo está tomando forma.</h1><p>Preparando os andares e as pessoas da sede…</p><span class="loading-line" aria-hidden="true"></span></div>
+  <div class="scene-title" id="scene-title"><span class="eyebrow">Seu espaço de trabalho</span><h1>Ideias em movimento.</h1><p>Quatro andares. Um só mundo.</p></div>
+  <div class="floor-rail" id="floor-rail" aria-label="Selecionar andar"></div>
+  <div class="mode-chip"><span class="live-dot" aria-hidden="true"></span><span id="location-label">Visão do andar</span><span class="chip-divider" aria-hidden="true"></span><span id="mode-label">Maquete</span><button id="environment-button" aria-label="Ajustar ambiente" title="Ajustar ciclo de dia e noite"><span id="world-clock-icon" aria-hidden="true">☀</span><span id="world-clock">09:50</span></button></div>
+  <button class="reception quiet" id="reception-button" title="Voltar ao ponto inicial do passeio"><span aria-hidden="true">↺</span> Recepção</button>
+  <button class="walk-settings quiet" id="walk-settings-button" aria-label="Ajustar passeio e câmera" title="Passeio e câmera"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="6" r="2" fill="white" stroke="currentColor" stroke-width="1.5"/><circle cx="16" cy="12" r="2" fill="white" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="18" r="2" fill="white" stroke="currentColor" stroke-width="1.5"/></svg></button>
+  <div id="crosshair" hidden aria-hidden="true"></div>
+  <section id="peace-hud" class="peace-hud" aria-label="Habilidade A paz é a única opção" hidden>
+   <button id="peace-toggle" class="peace-toggle" aria-pressed="false" aria-controls="peace-details"><kbd aria-hidden="true">P</kbd><span><small>Habilidade de brincadeira</small><strong>A paz é a única opção</strong></span></button>
+   <div id="peace-details" class="peace-details" hidden><div class="peace-count"><strong id="peace-ammo">6 / 6</strong><span>propostas de paz</span></div><p id="peace-status" role="status">Clique ou Espaço · R recarrega</p><div class="peace-actions"><button id="peace-fire">Disparar</button><button id="peace-reload">Recarregar</button></div></div>
+  </section>
+  <section id="drink-hud" class="drink-hud" aria-label="Sua bebida" hidden><small>Uma pausa sua</small><strong id="drink-title">Café quentinho</strong><p id="drink-status" role="status">Preparando…</p><button id="drink-sip"><kbd>F</kbd>Beber</button><progress id="drink-progress" max="1" value="0" aria-label="Gole em andamento" hidden></progress></section>
+  <aside id="pub-speech" class="pub-speech" role="status" aria-live="polite" aria-atomic="true" hidden><span class="section-label">Ben · filosofia de balcão</span><p id="pub-speech-text"></p><small id="pub-speech-inspiration"></small></aside>
+  <section id="kart-hud" class="kart-hud" aria-label="Painel do Roadster" hidden><div><strong id="kart-speed">0</strong><span>km/h</span></div><div><strong id="kart-altitude">0 m</strong><span id="kart-state">No chão</span></div><div><strong id="kart-pressure">100%</strong><span>reserva · arcade</span></div><div class="kart-lap-stat"><strong id="kart-laps">0</strong><span>voltas</span></div><div class="kart-lap-stat"><strong id="kart-best">—</strong><span>melhor volta</span></div><button id="kart-exit" class="quiet">Sair do carro</button></section>
+  <aside id="inspector" class="inspector" aria-label="Interação selecionada" hidden><button id="close-inspector" class="close" aria-label="Fechar painel">×</button><div id="inspector-content"></div></aside>
+  <aside id="metrics" class="metrics" aria-label="Atividade e custos simulados">
+   <div class="metrics-heading"><div><span class="eyebrow">Agora no andar · sessão</span><h2 id="metrics-title">Recepção & produto</h2></div><button id="simulation-button" aria-label="Pausar simulação" title="Pausar toda a simulação">Ⅱ</button></div>
+   <span class="demo-pill"><i aria-hidden="true"></i> Agentes e custos simulados</span>
+   <div class="metric-grid"><div data-const="Estado inicial da simulação; app-life.js atualiza o contador"><strong id="working-count">0</strong><span>trabalhando</span></div><div data-const="Quatro agentes por andar; app-life.js atualiza o contador"><strong id="active-count">4</strong><span>em atividade</span></div><div data-const="Estado inicial da simulação; app-life.js atualiza o contador"><strong id="paused-count">0</strong><span>em pausa</span></div></div>
+   <div class="cost-line"><span data-const="Tokens simulados; app-life.js atualiza este valor">Tokens<strong id="token-total">0</strong></span><span data-const="US$ 2 por milhão de tokens simulados; app-life.js atualiza este valor">Custo estimado<strong id="cost-total">US$ 0,0000</strong></span></div>
+   <div class="agent-list-heading"><span>Pessoas do andar</span><span>Por agente</span></div>
+   <div id="agent-list"></div>
+   <div class="delivered"><span>Tarefas concluídas</span><strong id="task-total">0</strong></div>
+   <button id="analytics-summary-button" class="quiet" style="width:100%;margin-top:12px">Consumo por projeto e modelo ↗</button>
+   <details class="rate-note"><summary>Como ler esta atividade</summary><p>Em atividade inclui trabalho e deslocamentos de serviço. Em pausa inclui café, descanso, espera por tarefa e rotinas pausadas. Pausar aqui só controla a simulação.</p><p>Esta sessão usa US$ 2 por 1M tokens fictícios. O painel Métricas usa um histórico de demonstração independente, com tarifas fictícias por modelo. Nenhum valor é uma cobrança real.</p></details>
+  </aside>
+  <div id="lift-journey" class="lift-journey" role="status" hidden><span>Elevador</span><strong id="lift-progress">T → 1</strong><p id="lift-caption">Subindo…</p></div>
+  <div class="mini-map" aria-label="Mapa do andar"><span>Você está aqui</span><div class="map-floor"><div class="map-room studio">EST</div><div class="map-room engineering">ENG</div><div class="map-room meeting">REU</div><div class="map-room lounge">CAF</div><i id="map-person"></i></div></div>
+  <div class="room-dock" id="room-dock" aria-label="Salas do andar selecionado"></div>
+  <button id="interaction-prompt" class="interaction-prompt" hidden><kbd>F</kbd><span>Interagir</span></button>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <div class="controls-hint" id="controls-hint">Arraste para girar <span>·</span> Role para aproximar <span>·</span> Escolha uma sala abaixo</div>
+ </main>
+ <footer><span><i aria-hidden="true"></i>Mundo local <b>·</b> Ferramentas e custos simulados</span><span id="performance">Carregando…</span><span>Cube World by Quaternius <b>·</b> CC0</span></footer>
+ <script type="module" src="app-life.js?v=20261019-ced2"></script>
+</body>
+</html>
+
+
+
+
+
+
